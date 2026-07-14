@@ -3,3 +3,11 @@
 @media(max-width:900px){.nav-links{display:none;position:absolute;top:75px;left:5vw;right:5vw;background:#10253a;padding:22px;flex-direction:column;align-items:stretch}.nav-links.open{display:flex}.menu-toggle{display:block}.hero,.outcomes,.course-hero,.course-body{grid-template-columns:1fr}.hero{padding-top:45px}.hero-visual{min-height:500px}.course-hero{padding-top:40px}.enroll-card{max-width:470px}.course-body{gap:20px}.includes{position:static}.steps{grid-template-columns:1fr}.step-card.featured{transform:none}.ticker{overflow:auto;justify-content:flex-start;white-space:nowrap}.ticker span{margin-right:25px}.ticker i{display:none}}
 @media(max-width:600px){.site-header{height:70px}h1{font-size:3.1rem}.hero{padding-bottom:70px}.hero-actions{align-items:flex-start;flex-direction:column}.proof-row{gap:18px;justify-content:space-between}.dashboard-card{width:105%;margin-left:0;padding:10px}.dash-top{margin:-10px -10px 10px}.hero-visual{min-height:420px}.float-card{right:0;bottom:0}.chart-grid{grid-template-columns:1fr 1fr}.mini-panel{padding:9px}.section{padding:75px 6vw}.outcomes{gap:40px}.course-meta{flex-wrap:wrap;gap:12px 22px}.course-body{padding:75px 6vw}.module button>span{gap:12px}.module button i{font-size:.85rem}.module-content{padding-left:42px}.final-cta{padding:70px 5vw}footer{flex-direction:column;gap:20px;text-align:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+/* Identidad FINACIAL_LAB by Tony */
+.brand-copy{display:flex;flex-direction:column;line-height:1}
+.brand-name{white-space:nowrap}
+.brand-name em{color:var(--green);font-style:normal}
+.brand-copy small{margin-top:4px;color:#aab5c0;font:500 .58rem "DM Sans";letter-spacing:.18em;text-transform:none}
+.ticker{align-items:center}
+.ticker-focus{background:var(--navy);color:var(--green-light);padding:9px 15px;font-size:1.02rem}

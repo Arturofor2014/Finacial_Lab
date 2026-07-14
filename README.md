@@ -1,4 +1,4 @@
-# FinanciaLab — Curso de Modelación Financiera
+# FINACIAL_LAB by Tony — Curso de Modelación Financiera
 
 Sitio web responsive con una landing page y una página de curso. El mismo repositorio puede publicarse en GitHub Pages o ejecutarse como aplicación en Streamlit Community Cloud.
 
@@ -36,4 +36,4 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Antes de publicar, reemplaza el nombre `FinanciaLab`, el correo, el precio y los textos provisionales por la información comercial definitiva.
+Antes de publicar, reemplaza el correo, el precio y los demás datos provisionales por la información comercial definitiva.

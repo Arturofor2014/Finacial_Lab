@@ -8,7 +8,7 @@ import streamlit.components.v1 as components
 ROOT = Path(__file__).parent
 
 st.set_page_config(
-    page_title="FinanciaLab | Modelación Financiera",
+    page_title="FINACIAL_LAB by Tony | Modelación Financiera",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -41,9 +41,6 @@ def build_page(filename: str) -> str:
 page = st.query_params.get("page", "inicio")
 filename = "cursos.html" if page == "cursos" else "index.html"
 
-# El contenido es largo; la altura evita una barra de desplazamiento interna.
-page_height = 4550 if filename == "cursos.html" else 4300
-
 st.markdown(
     """
     <style>
@@ -55,4 +52,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-components.html(build_page(filename), height=page_height, scrolling=False)
+# Streamlit muestra la web dentro de un iframe. El desplazamiento interno permite
+# que los enlaces #metodo, #resultados, #programa e #incluye naveguen correctamente.
+components.html(build_page(filename), height=900, scrolling=True)
