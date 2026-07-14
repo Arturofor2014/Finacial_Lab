@@ -35,10 +35,8 @@ document.addEventListener('click', event => {
     return;
   }
 
-  if (destination.startsWith('?page=')) {
-    event.preventDefault();
-    window.top.location.href = `/${destination}`;
-  }
+  // Los enlaces entre páginas llevan una URL pública completa y target=_top;
+  // el navegador los gestiona directamente fuera del iframe de Streamlit.
 });
 
 document.querySelectorAll('.module button').forEach(button => {
