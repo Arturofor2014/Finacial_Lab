@@ -15,6 +15,32 @@ document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener(
   }
 }));
 
+// Streamlit renderiza el sitio dentro de un iframe cuya ruta interna es /~/+/.
+// Interceptamos la navegación para que los anclajes se muevan dentro del sitio
+// y los cambios de página se abran desde la raíz real de la aplicación.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const destination = link.getAttribute('href');
+  if (!destination) return;
+
+  if (destination.startsWith('#')) {
+    const target = document.getElementById(destination.slice(1));
+    if (target) {
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', destination);
+    }
+    return;
+  }
+
+  if (destination.startsWith('?page=')) {
+    event.preventDefault();
+    window.top.location.href = `/${destination}`;
+  }
+});
+
 document.querySelectorAll('.module button').forEach(button => {
   button.addEventListener('click', () => button.closest('.module').classList.toggle('open'));
 });
