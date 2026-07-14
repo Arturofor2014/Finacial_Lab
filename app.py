@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 
-def build_page(filename: str) -> str:
+def build_page(filename: str, section: str = "") -> str:
     """Carga la web estática e integra CSS y JavaScript para Streamlit."""
     html = (ROOT / filename).read_text(encoding="utf-8")
     css = (ROOT / "styles.css").read_text(encoding="utf-8")
@@ -32,13 +32,27 @@ def build_page(filename: str) -> str:
         html,
     )
 
-    # Los enlaces entre archivos se convierten en rutas de la app Streamlit.
+    # Los enlaces entre páginas conservan también la sección de destino.
+    html = html.replace('href="cursos.html#inscripcion"', 'href="?page=cursos&section=inscripcion" target="_top"')
+    html = html.replace('href="index.html#metodo"', 'href="?page=inicio&section=metodo" target="_top"')
+    html = html.replace('href="index.html#resultados"', 'href="?page=inicio&section=resultados" target="_top"')
     html = html.replace('href="cursos.html"', 'href="?page=cursos" target="_top"')
     html = html.replace('href="index.html"', 'href="?page=inicio" target="_top"')
+
+    if section in {"metodo", "resultados", "inscripcion", "incluye"}:
+        scroll_script = f"""
+        <script>
+          window.addEventListener('load', () => {{
+            setTimeout(() => document.getElementById('{section}')?.scrollIntoView(), 150);
+          }});
+        </script>
+        """
+        html = html.replace("</body>", f"{scroll_script}</body>")
     return html
 
 
 page = st.query_params.get("page", "inicio")
+section = st.query_params.get("section", "")
 filename = "cursos.html" if page == "cursos" else "index.html"
 
 st.markdown(
@@ -54,4 +68,4 @@ st.markdown(
 )
 # Streamlit muestra la web dentro de un iframe. El desplazamiento interno permite
 # que los enlaces #metodo, #resultados, #programa e #incluye naveguen correctamente.
-components.html(build_page(filename), height=900, scrolling=True)
+components.html(build_page(filename, section), height=900, scrolling=True)

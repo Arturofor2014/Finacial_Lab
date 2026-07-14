@@ -11,3 +11,12 @@
 .brand-copy small{margin-top:4px;color:#aab5c0;font:500 .58rem "DM Sans";letter-spacing:.18em;text-transform:none}
 .ticker{align-items:center}
 .ticker-focus{background:var(--navy);color:var(--green-light);padding:9px 15px;font-size:1.02rem}
+
+/* Navegación fija y siempre visible */
+body{padding-top:84px}
+.site-header{position:fixed;top:0;left:0;right:0;width:100%;max-width:none;height:84px;background:rgba(6,20,38,.97);backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(0,0,0,.18);z-index:999;padding-left:max(5vw,calc((100vw - 1300px)/2));padding-right:max(5vw,calc((100vw - 1300px)/2))}
+.menu-toggle{display:none!important}
+.nav-links{display:flex!important}
+section[id],body[id],aside[id]{scroll-margin-top:100px}
+@media(max-width:700px){body{padding-top:72px}.site-header{height:72px;padding:0 12px}.brand-mark{width:29px;height:29px}.brand-name{font-size:.82rem}.brand-copy small{font-size:.48rem}.nav-links{position:static;background:transparent;padding:0;flex-direction:row;align-items:center;gap:9px}.nav-links a{font-size:.65rem;white-space:nowrap}.nav-links .button{padding:8px 10px}.site-header .brand{gap:6px}section[id],body[id],aside[id]{scroll-margin-top:86px}}
+@media(max-width:460px){.site-header{padding:0 7px}.brand-mark{display:none}.brand-name{font-size:.68rem}.brand-copy small{font-size:.42rem}.nav-links{gap:6px}.nav-links a{font-size:.57rem}.nav-links .button{padding:7px}}
