@@ -73,7 +73,7 @@ section = st.query_params.get("section", "")
 if page == "cursos":
     filename = "cursos.html"
 elif page == "privacidad":
-    filename = "legal/privacidad.html"
+    filename = "privacidad.html"
 else:
     filename = "index.html"
 
