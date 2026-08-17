@@ -39,6 +39,7 @@ def build_page(filename: str, section: str = "") -> str:
     html = html.replace('href="index.html#metodo"', f'href="{APP_URL}/?page=inicio&section=metodo" target="_top"')
     html = html.replace('href="index.html#resultados"', f'href="{APP_URL}/?page=inicio&section=resultados" target="_top"')
     html = html.replace('href="cursos.html"', f'href="{APP_URL}/?page=cursos" target="_top"')
+    html = html.replace('href="privacidad.html"', f'href="{APP_URL}/?page=privacidad" target="_top"')
     html = html.replace('href="index.html"', f'href="{APP_URL}/?page=inicio" target="_top"')
 
     # Llamados de inscripción: abren la página nativa controlada por Python.
@@ -69,7 +70,12 @@ def build_page(filename: str, section: str = "") -> str:
 
 page = st.query_params.get("page", "inicio")
 section = st.query_params.get("section", "")
-filename = "cursos.html" if page == "cursos" else "index.html"
+if page == "cursos":
+    filename = "cursos.html"
+elif page == "privacidad":
+    filename = "legal/privacidad.html"
+else:
+    filename = "index.html"
 
 st.markdown(
     """
